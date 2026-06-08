@@ -1,0 +1,21 @@
+{
+  "name": "aidd-workflow",
+  "displayName": "AIDD Workflow",
+  "version": "1.0.0",
+  "description": "AI-Driven Development Workflow — 22 skills for structured software development with adaptive depth, TDD enforcement, and subagent-driven execution",
+  "author": {
+    "name": "xfalcons"
+  },
+  "license": "MIT",
+  "keywords": [
+    "workflow",
+    "tdd",
+    "development",
+    "agile",
+    "requirements",
+    "design",
+    "code-generation",
+    "subagent"
+  ],
+  "hooks": "./hooks/hooks.json"
+}
