@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
-# SessionStart hook for aidd-workflow plugin (Claude Code)
+# SessionStart hook for aidd-workflow plugin
+# Compatible with both Claude Code and OpenAI Codex
 
 set -euo pipefail
 
 # Determine plugin root directory
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PLUGIN_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+# Codex sets PLUGIN_ROOT; Claude Code sets CLAUDE_PLUGIN_ROOT;
+# fall back to resolving from the script's own location.
+PLUGIN_ROOT="${PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-}}"
+if [ -z "$PLUGIN_ROOT" ]; then
+    SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+    PLUGIN_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+fi
 
 # Read using-aidd content
 using_aidd_content=$(cat "${PLUGIN_ROOT}/skills/using-aidd/SKILL.md" 2>&1 || echo "Error reading using-aidd skill")

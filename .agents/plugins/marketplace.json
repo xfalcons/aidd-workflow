@@ -1,0 +1,20 @@
+{
+  "name": "aidd-workflow",
+  "interface": {
+    "displayName": "AIDD Workflow"
+  },
+  "plugins": [
+    {
+      "name": "aidd-workflow",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

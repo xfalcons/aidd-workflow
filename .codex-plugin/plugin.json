@@ -1,0 +1,35 @@
+{
+  "name": "aidd-workflow",
+  "version": "1.0.0",
+  "description": "AI-Driven Development Workflow — 22 skills for structured software development with adaptive depth, TDD enforcement, and subagent-driven execution",
+  "author": {
+    "name": "xfalcons",
+    "url": "https://github.com/xfalcons"
+  },
+  "license": "MIT",
+  "keywords": [
+    "workflow",
+    "tdd",
+    "development",
+    "agile",
+    "requirements",
+    "design",
+    "code-generation",
+    "subagent"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "AIDD Workflow",
+    "shortDescription": "Structured AI-driven development with 22 skills, TDD, and adaptive depth",
+    "longDescription": "AIDD (AI-Driven Development) merges AWS AI-DLC's comprehensive lifecycle with Superpowers' modular delivery. 22 on-demand skills cover inception through construction — brainstorming, requirements analysis, user stories, application design, TDD-enforced code generation, subagent-driven development, and evidence-first verification. Adapts automatically: simple bug fixes use 7 skills, full systems use all 22.",
+    "developerName": "xfalcons",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Using AIDD, I want to build a new service with authentication and API endpoints",
+      "Using AIDD, add a new feature to my existing codebase",
+      "Using AIDD, fix the bug in the login flow"
+    ]
+  }
+}

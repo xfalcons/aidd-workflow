@@ -1,12 +1,12 @@
 # AIDD-Workflow
 
-> **AI-Driven Development Workflow** — a skills-based Claude Code plugin that merges [AWS AI-DLC's](https://github.com/awslabs/aidlc-workflows) comprehensive lifecycle with [Superpowers'](https://github.com/obra/superpowers) modular, token-efficient delivery.
+> **AI-Driven Development Workflow** — a skills-based plugin compatible with [Claude Code](https://code.claude.com), [OpenAI Codex](https://developers.openai.com/codex), and [OpenCode](https://open-code.ai) that merges [AWS AI-DLC's](https://github.com/awslabs/aidlc-workflows) comprehensive lifecycle with [Superpowers'](https://github.com/obra/superpowers) modular, token-efficient delivery.
 
 AIDD gives you the best of both worlds: AIDLC's structured inception→construction→operations phases with adaptive depth, combined with Superpowers' on-demand skills, TDD enforcement, subagent-driven execution, and evidence-first verification.
 
 ## How It Works
 
-AIDD is a **Claude Code plugin** with **22 skills** organized into three lifecycle phases. Skills are loaded on-demand — you don't pay token costs for capabilities you aren't using. Each skill knows its prerequisites and what comes next, so the workflow routes itself based on your project's complexity.
+AIDD is a **skills-based plugin** with **22 skills** organized into three lifecycle phases. Skills are loaded on-demand — you don't pay token costs for capabilities you aren't using. Each skill knows its prerequisites and what comes next, so the workflow routes itself based on your project's complexity.
 
 ### Adaptive Depth
 
@@ -35,7 +35,9 @@ CONSTRUCTION (per unit)
 
 ## Installation
 
-### Option 1: Skills-Directory Plugin (Recommended)
+### Claude Code
+
+#### Option 1: Skills-Directory Plugin (Recommended)
 
 This is the simplest install — no marketplace needed.
 
@@ -55,7 +57,7 @@ cp -r aidd-workflow/ /path/to/project/.claude/skills/aidd-workflow/
 
 Project-scope plugins load after the workspace trust dialog is accepted.
 
-### Option 2: Install via Plugin Directory
+#### Option 2: Install via Plugin Directory
 
 ```bash
 # Point Claude Code at the plugin directory
@@ -64,7 +66,7 @@ claude --plugin-dir /path/to/aidd-workflow
 
 This loads the plugin for the duration of that session.
 
-### Option 3: Manual Plugin Install
+#### Option 3: Manual Plugin Install
 
 ```bash
 # Copy to any location and add to settings
@@ -81,7 +83,7 @@ Then add to `~/.claude/settings.json` (user scope) or `.claude/settings.json` (p
 }
 ```
 
-### Verifying Installation
+#### Verifying Installation
 
 Start Claude Code and check:
 
@@ -89,13 +91,164 @@ Start Claude Code and check:
 > /plugin list
 ```
 
-You should see `aidd-workflow` with 22 skills registered. You can also run:
+You should see `aidd-workflow` with 22 skills registered.
+
+---
+
+### OpenAI Codex
+
+AIDD is compatible with Codex's plugin system. The repo includes both `.claude-plugin/plugin.json` (for Claude Code) and `.codex-plugin/plugin.json` (for Codex). The skill format, hooks, and SKILL.md frontmatter are identical across both platforms.
+
+#### Option 1: Repo Marketplace (Recommended)
+
+The repo includes a built-in marketplace at `.agents/plugins/marketplace.json`. Clone the repo into your project and point Codex at it:
+
+```bash
+# Add as a repo marketplace
+codex plugin marketplace add ./aidd-workflow
+```
+
+Or manually add to `$REPO_ROOT/.agents/plugins/marketplace.json`:
+
+```json
+{
+  "name": "aidd-workflow",
+  "plugins": [
+    {
+      "name": "aidd-workflow",
+      "source": {
+        "source": "local",
+        "path": "./aidd-workflow"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
+```
+
+#### Option 2: Personal Marketplace
+
+```bash
+# Clone into your personal plugins directory
+git clone <repo-url> ~/.agents/plugins/aidd-workflow
+```
+
+Then add to `~/.agents/plugins/marketplace.json`:
+
+```json
+{
+  "name": "personal-plugins",
+  "plugins": [
+    {
+      "name": "aidd-workflow",
+      "source": {
+        "source": "local",
+        "path": "./aidd-workflow"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
+```
+
+#### Option 3: CLI Install
+
+```bash
+codex plugin marketplace add ./path/to/aidd-workflow
+```
+
+#### Verifying Installation
 
 ```
-> claude plugin details aidd-workflow
+> /plugins
 ```
 
-To see the full component inventory and projected token costs.
+Browse the marketplace, find AIDD Workflow, and select `Install plugin`.
+
+#### Cross-Platform Compatibility
+
+| Aspect | Claude Code | OpenAI Codex | OpenCode |
+|--------|-------------|--------------|----------|
+| Manifest | `.claude-plugin/plugin.json` | `.codex-plugin/plugin.json` | N/A (skills-only) |
+| Skills format | `skills/<name>/SKILL.md` | `skills/<name>/SKILL.md` | `skills/<name>/SKILL.md` |
+| Frontmatter | `name` + `description` | `name` + `description` | `name` + `description` |
+| Hooks | `hooks/hooks.json` | `hooks/hooks.json` | ❌ Not supported |
+| Hook env var | `CLAUDE_PLUGIN_ROOT` | `PLUGIN_ROOT` + `CLAUDE_PLUGIN_ROOT` | N/A |
+| Skill loading | `Skill` tool | `skill` tool | `skill` tool |
+| SessionStart bootstrap | ✅ Auto-injects | ✅ Auto-injects | ❌ Manual (`AGENTS.md`) |
+
+Both manifests (`.claude-plugin/` and `.codex-plugin/`) are included in this repo. The `hooks/session-start` script auto-detects the platform via environment variables. For OpenCode, skills are portable but the hook is not — use `AGENTS.md` to reference `using-aidd` as the entry point.
+
+---
+
+### OpenCode
+
+OpenCode natively supports the same `SKILL.md` skill format and even searches `~/.claude/skills/` as a built-in skill discovery path. AIDD works with **zero code changes**.
+
+#### Option 1: Claude-Compatible Path (Recommended)
+
+OpenCode automatically discovers skills from `~/.claude/skills/`. If you already installed for Claude Code, it works in OpenCode too — no extra steps.
+
+```bash
+git clone <repo-url> ~/.claude/skills/aidd-workflow/skills
+```
+
+Wait — OpenCode expects each skill as a direct subdirectory, not nested under a plugin wrapper. The correct install is:
+
+```bash
+# OpenCode scans ~/.claude/skills/<name>/SKILL.md
+# Clone the repo, then symlink each skill directory
+git clone <repo-url> /path/to/aidd-workflow
+for skill in /path/to/aidd-workflow/skills/*/; do
+  ln -s "$skill" ~/.claude/skills/$(basename "$skill")
+done
+```
+
+#### Option 2: OpenCode Native Path
+
+```bash
+# Clone the repo
+git clone <repo-url> /path/to/aidd-workflow
+
+# Symlink skills into OpenCode's native skill directory
+mkdir -p ~/.config/opencode/skills
+for skill in /path/to/aidd-workflow/skills/*/; do
+  ln -s "$skill" ~/.config/opencode/skills/$(basename "$skill")
+done
+```
+
+#### Option 3: Project-Level
+
+```bash
+# Symlink into the project's .opencode/skills/ directory
+mkdir -p .opencode/skills
+for skill in /path/to/aidd-workflow/skills/*/; do
+  ln -s "$skill" .opencode/skills/$(basename "$skill")
+done
+```
+
+#### OpenCode Skill Discovery Paths
+
+OpenCode searches these locations (in order):
+
+| Path | Scope |
+|------|-------|
+| `.opencode/skills/<name>/SKILL.md` | Project |
+| `~/.config/opencode/skills/<name>/SKILL.md` | Global (OpenCode native) |
+| `.claude/skills/<name>/SKILL.md` | Project (Claude-compatible) |
+| `~/.claude/skills/<name>/SKILL.md` | Global (Claude-compatible) |
+| `.agents/skills/<name>/SKILL.md` | Project (Agent-compatible) |
+| `~/.agents/skills/<name>/SKILL.md` | Global (Agent-compatible) |
+
+**Note:** OpenCode discovers skills via the `skill` tool (same as Claude Code's `Skill` tool). The SessionStart hook from `hooks/session-start` does not run on OpenCode — only the skills themselves are portable. The `using-aidd` entry-point skill should be invoked manually or referenced in your `AGENTS.md`.
 
 ## Usage
 
@@ -202,12 +355,17 @@ Extensions are presented as opt-in questions during `requirements-analysis`. Whe
 
 ## Plugin Structure
 
-This plugin follows the [Claude Code plugin structure](https://code.claude.com/docs/en/plugins-reference):
+This plugin follows the [Claude Code plugin structure](https://code.claude.com/docs/en/plugins-reference) and is also compatible with the [OpenAI Codex plugin structure](https://developers.openai.com/codex/plugins/build):
 
 ```
 aidd-workflow/
 ├── .claude-plugin/
-│   └── plugin.json                  # Plugin manifest
+│   └── plugin.json                  # Claude Code manifest
+├── .codex-plugin/
+│   └── plugin.json                  # OpenAI Codex manifest (with interface metadata)
+├── .agents/
+│   └── plugins/
+│       └── marketplace.json         # Codex marketplace catalog
 ├── skills/                          # 22 skills (auto-discovered)
 │   ├── using-aidd/SKILL.md          # Entry point skill
 │   ├── workspace-detection/SKILL.md
@@ -233,7 +391,7 @@ aidd-workflow/
 │   └── writing-skills/SKILL.md
 ├── hooks/
 │   ├── hooks.json                   # SessionStart hook
-│   └── session-start                # Bootstrap script
+│   └── session-start                # Bootstrap script (cross-platform)
 ├── extensions/                      # Opt-in cross-cutting rules
 │   ├── security/
 │   ├── resiliency/
@@ -243,10 +401,18 @@ aidd-workflow/
 
 ### How the Plugin Loads
 
+**Claude Code:**
 1. Claude Code discovers the plugin via `~/.claude/skills/aidd-workflow/.claude-plugin/plugin.json`
 2. The `hooks/hooks.json` registers a `SessionStart` hook
 3. On session start, `hooks/session-start` injects the `using-aidd` skill content into context
 4. Claude uses the `Skill` tool to load other skills on-demand as needed
+5. Skills route to each other via `aidd:skill-name` references
+
+**OpenAI Codex:**
+1. Codex discovers the plugin via `.codex-plugin/plugin.json`
+2. Skills are registered from `./skills/` — Codex loads `name`/`description` at startup
+3. Full SKILL.md content loads on-demand when Codex decides to use a skill
+4. The `hooks/hooks.json` registers a `SessionStart` hook (uses `PLUGIN_ROOT` env var)
 5. Skills route to each other via `aidd:skill-name` references
 
 ## Comparison with Parent Projects
