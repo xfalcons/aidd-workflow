@@ -51,11 +51,31 @@ Assess: does the change involve multiple components, span user touchpoints, or h
 4. **Analyze answers** — check for ambiguities, follow up
 5. **Get plan approval**
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## User Stories - Plan Approval
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response - never summarized]"
+- **AI Response**: "[approved/changes requested]"
+- **Context**: Story plan gate
+
+---
+-->
+
 **Part 2 — Generation:**
 6. **Generate personas** — user types and their goals
 7. **Generate stories** — with INVEST compliance and acceptance criteria
 8. **Create persona-story mapping**
 9. **Get user approval**
+
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## User Stories - Stories Approval
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response - never summarized]"
+- **AI Response**: "[approved/changes requested]"
+- **Context**: Stories generation complete
+
+---
+-->
 
 ## Part 1: Planning
 

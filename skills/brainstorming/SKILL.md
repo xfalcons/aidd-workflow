@@ -13,6 +13,16 @@ Start by understanding the current project context, then ask questions one at a 
 Do NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action until you have presented a design and the user has approved it. This applies to EVERY project regardless of perceived simplicity.
 </HARD-GATE>
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Brainstorming - Start
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[complete raw request - never summarized]"
+- **AI Response**: "Beginning brainstorming at [depth] depth"
+- **Context**: Brainstorming start
+
+---
+-->
+
 ## Adaptive Depth
 
 Not every project needs the same depth of exploration:
@@ -95,6 +105,16 @@ digraph brainstorming {
 - Once you believe you understand what you're building, present the design
 - Scale each section to its complexity: a few sentences if straightforward, up to 200-300 words if nuanced
 - Ask after each section whether it looks right so far
+
+<!-- AUDIT: Append to aidd-docs/audit.md after each design section approval:
+## Brainstorming - Design Section Approval
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response to design section - never summarized]"
+- **AI Response**: "[accepted/revise]"
+- **Context**: Design section [N] approval
+
+---
+-->
 - Cover: architecture, components, data flow, error handling, testing
 - Be ready to go back and clarify if something doesn't make sense
 
@@ -134,6 +154,16 @@ After the spec review loop passes, ask the user to review the written spec befor
 > "Spec written and committed to `<path>`. Please review it and let me know if you want to make any changes before we proceed."
 
 Wait for the user's response. If they request changes, make them and re-run the spec review loop. Only proceed once the user approves.
+
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Brainstorming - Spec Review
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response to spec - never summarized]"
+- **AI Response**: "Spec approved, routing to [next skill]"
+- **Context**: Spec review gate
+
+---
+-->
 
 **Transition:**
 

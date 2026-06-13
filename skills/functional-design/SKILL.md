@@ -38,6 +38,16 @@ Detailed business logic design per unit of work.
 5. **Generate design artifacts** — business logic, rules, domain entities
 6. **Get user approval**
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Functional Design - Approval
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response - never summarized]"
+- **AI Response**: "[approved/changes requested]"
+- **Context**: Functional design [unit-name] complete
+
+---
+-->
+
 ## Step 1: Analyze Unit Context
 
 Read and understand:

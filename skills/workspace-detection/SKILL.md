@@ -25,6 +25,16 @@ Check if `aidd-docs/aidd-state.md` exists:
 
 ### Session Resume (if state file exists)
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Session Resume
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's return message]"
+- **AI Response**: "Resuming from [current stage]"
+- **Context**: Session resume, loading artifacts from [phase]
+
+---
+-->
+
 1. Read `aidd-docs/aidd-state.md` to determine:
    - Current phase and stage
    - Completed stages
@@ -106,6 +116,26 @@ Create `aidd-docs/aidd-state.md`:
 - aidd-docs/aidd-state.md (this file)
 ```
 
+Create `aidd-docs/audit.md` if it does not exist:
+
+```markdown
+# AIDD Audit Trail
+
+> Append-only log of all interactions. Never overwrite.
+
+---
+```
+
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Workspace Detection - Initial Request
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[complete raw user request - never summarized]"
+- **AI Response**: "Created session, scanning workspace"
+- **Context**: Session start, new project
+
+---
+-->
+
 ## Step 5: Present Findings and Proceed
 
 **No user approval required** — workspace detection is informational.
@@ -128,9 +158,19 @@ Create `aidd-docs/aidd-state.md`:
 
 Automatically invoke `brainstorming` skill next.
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Workspace Detection - Findings
+- **Timestamp**: [ISO 8601]
+- **User Input**: N/A
+- **AI Response**: "[greenfield/brownfield] project detected, languages: [list], build system: [if found]"
+- **Context**: Workspace detection complete
+
+---
+-->
+
 ## Key Principles
 
 - **Non-blocking**: Workspace detection never requires user approval
 - **Lightweight state**: Only track what's needed for routing
 - **Smart context loading**: On resume, load only artifacts relevant to current stage
-- **No audit trail**: State file tracks progress, not every interaction
+- **Audit trail**: Log initial request and findings to `aidd-docs/audit.md` (append-only, created here)

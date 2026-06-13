@@ -40,6 +40,16 @@ Analyze non-functional requirements and incorporate them into the unit design wi
 7. **Make tech stack decisions** — with rationale
 8. **Get user approval**
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## NFR Design - Approval
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response - never summarized]"
+- **AI Response**: "[approved/changes requested]"
+- **Context**: NFR design [unit-name] complete
+
+---
+-->
+
 ## Step 1: Analyze Functional Design
 
 Read functional design artifacts from `aidd-docs/construction/{unit-name}/functional-design/`. Understand the business logic complexity to assess which NFR categories are relevant.

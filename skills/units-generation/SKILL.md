@@ -41,12 +41,32 @@ Decompose a system into manageable, independently developable units of work.
 3. **Analyze answers** — check for ambiguities
 4. **Get plan approval**
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Units Generation - Plan Approval
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response - never summarized]"
+- **AI Response**: "[approved/changes requested]"
+- **Context**: Unit plan gate
+
+---
+-->
+
 **Part 2 — Generation:**
 5. **Generate unit definitions** — responsibilities and boundaries
 6. **Generate dependency matrix** — which units depend on which
 7. **Generate story map** — which stories belong to which unit
 8. **Generate code organization** — directory structure (greenfield only)
 9. **Get user approval**
+
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Units Generation - Artifacts Approval
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response - never summarized]"
+- **AI Response**: "[approved/changes requested]"
+- **Context**: Unit artifacts (definitions, dependencies, story map) complete
+
+---
+-->
 
 ## Part 1: Planning
 

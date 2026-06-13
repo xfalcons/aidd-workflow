@@ -140,6 +140,16 @@ After writing the complete plan, look at it with fresh eyes and check the plan a
 
 If you find issues, fix them inline. No need to re-review — just fix and move on. If you find a spec requirement with no task, add the task.
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Writing Plans - Self-Review
+- **Timestamp**: [ISO 8601]
+- **User Input**: N/A
+- **AI Response**: "[issues found / no issues] — plan covers [N] tasks for [feature]"
+- **Context**: Plan self-review complete
+
+---
+-->
+
 ## Execution Handoff
 
 After saving the plan, offer execution choice:
@@ -151,6 +161,16 @@ After saving the plan, offer execution choice:
 **2. Inline Execution** — Execute tasks in this session using executing-plans, batch execution with checkpoints
 
 **Which approach?"**
+
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Writing Plans - Execution Choice
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's choice - never summarized]"
+- **AI Response**: "[subagent-driven / inline execution chosen]"
+- **Context**: Execution handoff
+
+---
+-->
 
 **If Subagent-Driven chosen:**
 - **REQUIRED SUB-SKILL:** Use aidd:subagent-driven-development

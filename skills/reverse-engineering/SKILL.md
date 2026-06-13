@@ -156,6 +156,16 @@ Update `aidd-docs/aidd-state.md`:
 
 ## Step 5: Present and Get Approval
 
+<!-- AUDIT: Append to aidd-docs/audit.md before asking for approval:
+## Reverse Engineering - Approval Prompt
+- **Timestamp**: [ISO 8601]
+- **User Input**: N/A (prompt)
+- **AI Response**: "Presenting findings for approval"
+- **Context**: Reverse engineering complete
+
+---
+-->
+
 ```
 🔍 Reverse Engineering Complete
 
@@ -168,6 +178,16 @@ Review artifacts at: aidd-docs/inception/reverse-engineering/
 ```
 
 Wait for explicit user approval before proceeding to `aidd:brainstorming`.
+
+<!-- AUDIT: Append to aidd-docs/audit.md after receiving user response:
+## Reverse Engineering - Approval Response
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's complete response - never summarized]"
+- **AI Response**: "[approved/changes requested]"
+- **Context**: User approval decision
+
+---
+-->
 
 ## Key Principles
 

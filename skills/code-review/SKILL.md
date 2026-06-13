@@ -49,6 +49,16 @@ Use Task tool with `general-purpose` type, fill template at `code-reviewer.md`
 - Note Minor issues for later
 - Push back if reviewer is wrong (with reasoning)
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Code Review - Request
+- **Timestamp**: [ISO 8601]
+- **User Input**: N/A
+- **AI Response**: "Dispatched reviewer for [BASE_SHA..HEAD_SHA]"
+- **Context**: Code review request
+
+---
+-->
+
 ---
 
 ## Part 2: Receiving Code Review
@@ -69,6 +79,16 @@ WHEN receiving code review feedback:
 5. RESPOND: Technical acknowledgment or reasoned pushback
 6. IMPLEMENT: One item at a time, test each
 ```
+
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Code Review - Feedback Received
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[reviewer feedback summary]"
+- **AI Response**: "[evaluating/clarifying/implementing/pushing back]"
+- **Context**: Review feedback processing
+
+---
+-->
 
 ### Forbidden Responses
 

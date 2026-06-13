@@ -102,9 +102,40 @@ When multiple skills could apply, use this order:
 
 The skill itself tells you which.
 
+## Audit Trail
+
+Every AIDD session maintains an append-only audit log at `aidd-docs/audit.md`. This is **distinct** from the state file:
+
+- `aidd-state.md` = progress tracking (phases, stages, completed/skipped)
+- `audit.md` = complete interaction log (raw inputs, approvals, errors, changes)
+
+### Audit Entry Format
+
+```markdown
+## [Stage Name] - [Action]
+- **Timestamp**: YYYY-MM-DDTHH:MM:SSZ
+- **User Input**: "[Complete raw user input - never summarized]"
+- **AI Response**: "[AI's action or response]"
+- **Context**: [Stage, action, decision]
+
+---
+```
+
+### Audit Rules
+
+- **Append-only**: Use Edit tool to append entries. NEVER use Write to overwrite audit.md
+- **Never summarize user input**: Capture complete raw text exactly as provided
+- **ISO 8601 timestamps**: Always use `YYYY-MM-DDTHH:MM:SSZ` format
+- **Log at every approval point**: Before asking AND after receiving response
+- **Log errors and resolutions**: Every error gets an audit entry
+- **Created by workspace-detection**: First skill to run creates the file and logs the initial user request
+- **Skills mark audit points with `<!-- AUDIT -->` comments**: Follow these markers in each skill
+
 # Phase → Skill Routing
 
 ## Inception
+
+`workspace-detection` creates `aidd-docs/audit.md` and logs the initial user request (always first).
 
 ```
 1. workspace-detection

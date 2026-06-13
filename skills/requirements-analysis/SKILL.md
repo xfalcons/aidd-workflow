@@ -96,6 +96,16 @@ Follow-up is MANDATORY for:
 - Missing details
 - Answers that combine multiple options
 
+<!-- AUDIT: Append to aidd-docs/audit.md after each clarification round:
+## Requirements Analysis - Clarification
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's answer - never summarized]"
+- **AI Response**: "[recorded/follow-up needed]"
+- **Context**: Clarifying question round [N]
+
+---
+-->
+
 ## Step 5: Extension Opt-Ins (Standard+ Depth)
 
 If extensions exist in the project, present opt-in questions:
@@ -107,6 +117,16 @@ Record user's choices in `aidd-docs/aidd-state.md` under Extension Configuration
 
 For each extension opted IN: load the full rules file.
 For each extension opted OUT: do NOT load the rules file.
+
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Requirements Analysis - Extension Configuration
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's extension choices - never summarized]"
+- **AI Response**: "Extensions enabled: [list]. Extensions disabled: [list]."
+- **Context**: Extension opt-in configuration
+
+---
+-->
 
 ## Step 6: Generate Requirements Document
 
@@ -163,6 +183,16 @@ Review the requirements at: aidd-docs/inception/requirements/requirements.md
 🔧 Request Changes
 ✅ Approve & Continue → [next skill]
 ```
+
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Requirements Analysis - Approval
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's approval response - never summarized]"
+- **AI Response**: "[approved/changes requested]"
+- **Context**: Requirements analysis complete, routing to [next skill]
+
+---
+-->
 
 **Routing:**
 - User-facing feature with complexity → `aidd:user-stories`

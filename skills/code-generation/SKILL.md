@@ -135,6 +135,16 @@ After all tasks in the plan are complete:
 ✅ Continue — approve and proceed to next stage
 ```
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Code Generation - Completion
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response - never summarized]"
+- **AI Response**: "[approved/changes requested]"
+- **Context**: Code generation [unit-name] complete, [N/N] tests passing
+
+---
+-->
+
 ## Red Flags — STOP
 
 - Writing code before writing the failing test

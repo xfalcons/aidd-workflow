@@ -36,6 +36,16 @@ Map logical software components to actual infrastructure choices for deployment.
 5. **Generate infrastructure artifacts** — mapping, deployment architecture, shared infra
 6. **Get user approval**
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Infrastructure Design - Approval
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response - never summarized]"
+- **AI Response**: "[approved/changes requested]"
+- **Context**: Infrastructure design [unit-name] complete
+
+---
+-->
+
 ## Step 1: Analyze Design Artifacts
 
 Read and understand:

@@ -37,6 +37,16 @@ Stop. Don't proceed to Step 2.
 
 **If tests pass:** Continue to Step 2.
 
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Branch Completion - Tests
+- **Timestamp**: [ISO 8601]
+- **User Input**: N/A
+- **AI Response**: "[N/N] tests passing"
+- **Context**: Pre-completion test verification
+
+---
+-->
+
 ### Step 2: Detect Environment
 
 **Determine workspace state before presenting options:**
@@ -91,6 +101,16 @@ Which option?
 ```
 
 **Don't add explanation** - keep options concise.
+
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Branch Completion - Choice
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's choice - never summarized]"
+- **AI Response**: "[merge/PR/keep/discard]"
+- **Context**: Integration choice
+
+---
+-->
 
 ### Step 5: Execute Choice
 
@@ -156,6 +176,16 @@ Type 'discard' to confirm.
 ```
 
 Wait for exact confirmation.
+
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Branch Completion - Discard Confirmation
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response - never summarized]"
+- **AI Response**: "[confirmed/aborted]"
+- **Context**: Discard confirmation
+
+---
+-->
 
 If confirmed:
 ```bash

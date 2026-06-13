@@ -37,6 +37,16 @@ High-level component identification and service layer design.
 4. **Analyze answers** — check for ambiguities
 5. **Generate design artifacts** — components, methods, services, dependencies
 6. **Get user approval**
+
+<!-- AUDIT: Append to aidd-docs/audit.md:
+## Application Design - Approval
+- **Timestamp**: [ISO 8601]
+- **User Input**: "[user's response - never summarized]"
+- **AI Response**: "[approved/changes requested]"
+- **Context**: Application design complete
+
+---
+-->
 7. **Route to next skill**
 
 ## Step 1: Analyze Context
