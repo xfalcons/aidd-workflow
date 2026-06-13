@@ -46,7 +46,7 @@ You MUST create a task for each of these items and complete them in order:
 3. **Ask clarifying questions** — one at a time, understand purpose/constraints/success criteria (skip for minimal depth if intent is clear)
 4. **Propose 2-3 approaches** — with trade-offs and your recommendation (skip for minimal depth)
 5. **Present design** — in sections scaled to their complexity, get user approval after each section
-6. **Write design doc** — save to `docs/aidd/specs/YYYY-MM-DD-<topic>-design.md` and commit
+6. **Write design doc** — save to `aidd-docs/specs/{NNN}-YYYY-MM-DD-<topic>-design.md` (read **Next Doc ID** from `aidd-state.md` under `## Document Counter`, increment after saving) and commit
 7. **Spec self-review** — quick inline check for placeholders, contradictions, ambiguity, scope
 8. **User reviews written spec** — ask user to review the spec file before proceeding
 9. **Transition to next skill** — invoke `writing-plans` (simple) or `requirements-analysis` (standard+)
@@ -134,7 +134,7 @@ digraph brainstorming {
 
 **Documentation:**
 
-- Write the validated design (spec) to `docs/aidd/specs/YYYY-MM-DD-<topic>-design.md`
+- Write the validated design (spec) to `aidd-docs/specs/{NNN}-YYYY-MM-DD-<topic>-design.md` (serial-number prefixed)
 - User preferences for spec location override this default
 - Commit the design document to git
 

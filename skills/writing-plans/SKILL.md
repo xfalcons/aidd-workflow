@@ -13,7 +13,9 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 
 **Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
 
-**Save plans to:** `docs/aidd/plans/YYYY-MM-DD-<feature-name>.md`
+**Save plans to:** `aidd-docs/plans/{NNN}-YYYY-MM-DD-<feature-name>.md`
+- Read **Next Doc ID** from `aidd-state.md` under `## Document Counter`. Use this number as the filename prefix.
+- After saving the plan, increment the counter in `aidd-state.md`.
 - (User preferences for plan location override this default)
 
 ## Pre-Planning Assessment
@@ -154,7 +156,7 @@ If you find issues, fix them inline. No need to re-review — just fix and move 
 
 After saving the plan, offer execution choice:
 
-**"Plan complete and saved to `docs/aidd/plans/<filename>.md`. Two execution options:**
+**"Plan complete and saved to `aidd-docs/plans/<filename>.md`. Two execution options:**
 
 **1. Subagent-Driven (recommended)** — I dispatch a fresh subagent per task, review between tasks, fast iteration
 
