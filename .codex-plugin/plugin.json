@@ -18,7 +18,7 @@
     "subagent"
   ],
   "skills": "./skills/",
-  "hooks": "./hooks/hooks.json",
+  "hooks": "./hooks/hooks-codex.json",
   "interface": {
     "displayName": "AIDD Workflow",
     "shortDescription": "Structured AI-driven development with 22 skills, TDD, and adaptive depth",
