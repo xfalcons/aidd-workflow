@@ -35,34 +35,32 @@ Use the `Skill` tool. When you invoke a skill, its content is loaded and present
 
 **Invoke relevant or requested skills BEFORE any response or action.** Even a 1% chance a skill might apply means you should invoke the skill to check. If an invoked skill turns out to be wrong for the situation, you don't need to use it.
 
-```
-digraph skill_flow {
-    "User message received" [shape=doublecircle];
-    "About to EnterPlanMode?" [shape=doublecircle];
-    "Already brainstormed?" [shape=diamond];
-    "Invoke brainstorming skill" [shape=box];
-    "Might any skill apply?" [shape=diamond];
-    "Invoke Skill tool" [shape=box];
-    "Announce: 'Using [skill] to [purpose]'" [shape=box];
-    "Has checklist?" [shape=diamond];
-    "Create TodoWrite todo per item" [shape=box];
-    "Follow skill exactly" [shape=box];
-    "Respond (including clarifications)" [shape=doublecircle];
+```mermaid
+flowchart TD
+    recv(("User message received"))
+    plan(("About to EnterPlanMode?"))
+    brain{"Already brainstormed?"}
+    invokeBrain["Invoke brainstorming skill"]
+    any{"Might any skill apply?"}
+    invokeSkill["Invoke Skill tool"]
+    announce["Announce: 'Using [skill] to [purpose]'"]
+    checklist{"Has checklist?"}
+    todos["Create TodoWrite todo per item"]
+    follow["Follow skill exactly"]
+    respond(("Respond (including clarifications)"))
 
-    "About to EnterPlanMode?" -> "Already brainstormed?";
-    "Already brainstormed?" -> "Invoke brainstorming skill" [label="no"];
-    "Already brainstormed?" -> "Might any skill apply?" [label="yes"];
-    "Invoke brainstorming skill" -> "Might any skill apply?";
-
-    "User message received" -> "Might any skill apply?";
-    "Might any skill apply?" -> "Invoke Skill tool" [label="yes, even 1%"];
-    "Might any skill apply?" -> "Respond (including clarifications)" [label="definitely not"];
-    "Invoke Skill tool" -> "Announce: 'Using [skill] to [purpose]'";
-    "Announce: 'Using [skill] to [purpose]'" -> "Has checklist?";
-    "Has checklist?" -> "Create TodoWrite todo per item" [label="yes"];
-    "Has checklist?" -> "Follow skill exactly" [label="no"];
-    "Create TodoWrite todo per item" -> "Follow skill exactly";
-}
+    plan --> brain
+    brain -->|"no"| invokeBrain
+    brain -->|"yes"| any
+    invokeBrain --> any
+    recv --> any
+    any -->|"yes, even 1%"| invokeSkill
+    any -->|"definitely not"| respond
+    invokeSkill --> announce
+    announce --> checklist
+    checklist -->|"yes"| todos
+    checklist -->|"no"| follow
+    todos --> follow
 ```
 
 ## Red Flags
@@ -152,6 +150,10 @@ Before creating any artifact file in `aidd-docs/`:
 
 - `001-architecture.md`, `002-code-structure.md`, `003-requirements.md`, etc.
 - Construction artifacts: `010-{unit-name}-business-logic-model.md`
+
+## Diagrams
+
+All diagrams in AIDD-produced markdown **must use Mermaid** (fenced `mermaid` code blocks) — never Graphviz/`dot`, ASCII art, or images. See `diagram-style.md` for the full conventions (shapes, labels, colors) and when to prefer a table or list over a diagram.
 
 # Phase → Skill Routing
 

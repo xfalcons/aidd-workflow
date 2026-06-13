@@ -53,31 +53,19 @@ You MUST create a task for each of these items and complete them in order:
 
 ## Process Flow
 
-```
-digraph brainstorming {
-    "Explore project context" [shape=box];
-    "Assess depth" [shape=box];
-    "Ask clarifying questions" [shape=box];
-    "Propose 2-3 approaches" [shape=box];
-    "Present design sections" [shape=box];
-    "User approves design?" [shape=diamond];
-    "Write design doc" [shape=box];
-    "Spec self-review" [shape=box];
-    "User reviews spec?" [shape=diamond];
-    "Route to next skill" [shape=doublecircle];
-
-    "Explore project context" -> "Assess depth";
-    "Assess depth" -> "Ask clarifying questions";
-    "Ask clarifying questions" -> "Propose 2-3 approaches";
-    "Propose 2-3 approaches" -> "Present design sections";
-    "Present design sections" -> "User approves design?";
-    "User approves design?" -> "Present design sections" [label="no, revise"];
-    "User approves design?" -> "Write design doc" [label="yes"];
-    "Write design doc" -> "Spec self-review";
-    "Spec self-review" -> "User reviews spec?";
-    "User reviews spec?" -> "Write design doc" [label="changes requested"];
-    "User reviews spec?" -> "Route to next skill" [label="approved"];
-}
+```mermaid
+flowchart TD
+    A["Explore project context"] --> B["Assess depth"]
+    B --> C["Ask clarifying questions"]
+    C --> D["Propose 2-3 approaches"]
+    D --> E["Present design sections"]
+    E --> F{"User approves design?"}
+    F -->|"no, revise"| E
+    F -->|"yes"| G["Write design doc"]
+    G --> H["Spec self-review"]
+    H --> I{"User reviews spec?"}
+    I -->|"changes requested"| G
+    I -->|"approved"| J(("Route to next skill"))
 ```
 
 **The terminal state routes to the next skill.** For minimal depth → `writing-plans`. For standard+ depth → `requirements-analysis`.

@@ -353,6 +353,10 @@ Extensions are presented as opt-in questions during `requirements-analysis`. Whe
 - **Human in control** — Every design requires your approval before implementation proceeds
 - **Subagents get isolated context** — Fresh agent per task, no session pollution
 
+## Conventions
+
+- **Diagrams use [Mermaid](skills/using-aidd/diagram-style.md)** — every diagram in this repo is a fenced `mermaid` block; no Graphviz, ASCII art, or images.
+
 ## Plugin Structure
 
 This plugin follows the [Claude Code plugin structure](https://code.claude.com/docs/en/plugins-reference) and is also compatible with the [OpenAI Codex plugin structure](https://developers.openai.com/codex/plugins/build):
