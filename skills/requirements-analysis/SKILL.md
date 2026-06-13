@@ -130,7 +130,9 @@ For each extension opted OUT: do NOT load the rules file.
 
 ## Step 6: Generate Requirements Document
 
-Create `aidd-docs/inception/requirements/requirements.md` containing:
+Read **Next Doc ID** from `aidd-state.md` under `## Document Counter`. Use this number as the filename prefix. After creating the file, increment the counter.
+
+Create `aidd-docs/inception/requirements/{NNN}-requirements.md` containing:
 
 ```markdown
 # Requirements
@@ -178,7 +180,7 @@ Present requirements summary to user:
 • **Scope**: [scope]
 • **Key Requirements**: [bullet list]
 
-Review the requirements at: aidd-docs/inception/requirements/requirements.md
+Review the requirements at: aidd-docs/inception/requirements/{NNN}-requirements.md
 
 🔧 Request Changes
 ✅ Approve & Continue → [next skill]

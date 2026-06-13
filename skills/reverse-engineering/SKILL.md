@@ -53,9 +53,11 @@ Understand the business the system implements:
 
 ## Step 3: Generate Artifacts
 
+Read **Next Doc ID** from `aidd-state.md` under `## Document Counter`. Use this number as the filename prefix for each file below. After creating each file, increment the counter in `aidd-state.md`.
+
 Create the following in `aidd-docs/inception/reverse-engineering/`:
 
-### architecture.md
+### {NNN}-architecture.md
 ```markdown
 # System Architecture
 
@@ -78,7 +80,7 @@ Create the following in `aidd-docs/inception/reverse-engineering/`:
 - External APIs, databases, third-party services
 ```
 
-### code-structure.md
+### {NNN}-code-structure.md
 ```markdown
 # Code Structure
 
@@ -95,7 +97,7 @@ Create the following in `aidd-docs/inception/reverse-engineering/`:
 - **Purpose**: [why used]
 ```
 
-### api-documentation.md
+### {NNN}-api-documentation.md
 ```markdown
 # API Documentation
 
@@ -112,7 +114,7 @@ Create the following in `aidd-docs/inception/reverse-engineering/`:
 - **Relationships**: [related models]
 ```
 
-### component-inventory.md
+### {NNN}-component-inventory.md
 ```markdown
 # Component Inventory
 
@@ -127,7 +129,7 @@ Create the following in `aidd-docs/inception/reverse-engineering/`:
 - **Application**: [number] | **Infrastructure**: [number]
 ```
 
-### technology-stack.md
+### {NNN}-technology-stack.md
 ```markdown
 # Technology Stack
 

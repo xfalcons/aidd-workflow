@@ -131,6 +131,28 @@ Every AIDD session maintains an append-only audit log at `aidd-docs/audit.md`. T
 - **Created by workspace-detection**: First skill to run creates the file and logs the initial user request
 - **Skills mark audit points with `<!-- AUDIT -->` comments**: Follow these markers in each skill
 
+## Document Serial Numbers
+
+All generated docs in `aidd-docs/` get a serial number prefix (e.g., `001-requirements.md`), **except** `aidd-state.md` and `audit.md`.
+
+### Counter Location
+
+The global counter is stored in `aidd-state.md` under `## Document Counter` → `**Next Doc ID**: 001`.
+
+### Usage Pattern
+
+Before creating any artifact file in `aidd-docs/`:
+
+1. Read `**Next Doc ID**` from `aidd-state.md` under `## Document Counter`
+2. Prefix the filename with the number: `{NNN}-original-name.md` (3-digit zero-padded)
+3. After creating the file, increment `**Next Doc ID**` in `aidd-state.md` (e.g., `001` → `002`)
+4. When reading artifacts from other skills, look up the actual prefixed filename from the directory
+
+### Examples
+
+- `001-architecture.md`, `002-code-structure.md`, `003-requirements.md`, etc.
+- Construction artifacts: `010-{unit-name}-business-logic-model.md`
+
 # Phase → Skill Routing
 
 ## Inception

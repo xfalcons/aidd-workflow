@@ -112,6 +112,9 @@ Create `aidd-docs/aidd-state.md`:
 ## Extension Configuration
 - [to be populated during requirements-analysis]
 
+## Document Counter
+**Next Doc ID**: 001
+
 ## Generated Artifacts
 - aidd-docs/aidd-state.md (this file)
 ```

@@ -82,10 +82,10 @@ Based on application design:
 - [Unit N]: [components it covers]
 
 ## Artifacts to Generate
-- [ ] unit-of-work.md — unit definitions and responsibilities
-- [ ] unit-of-work-dependency.md — dependency matrix
-- [ ] unit-of-work-story-map.md — story-to-unit mapping
-- [ ] code-organization.md — directory structure (greenfield only)
+- [ ] {NNN}-unit-of-work.md — unit definitions and responsibilities
+- [ ] {NNN}-unit-of-work-dependency.md — dependency matrix
+- [ ] {NNN}-unit-of-work-story-map.md — story-to-unit mapping
+- [ ] {NNN}-code-organization.md — directory structure (greenfield only)
 
 ## Questions
 [context-appropriate questions]
@@ -102,7 +102,9 @@ Check for: vague groupings, circular dependencies, unassigned stories, units tha
 
 ## Part 2: Generation
 
-### unit-of-work.md
+Read **Next Doc ID** from `aidd-state.md` under `## Document Counter`. Use this number as the filename prefix for each file below. After creating each file, increment the counter.
+
+### {NNN}-unit-of-work.md
 
 ```markdown
 # Units of Work
@@ -119,7 +121,7 @@ Check for: vague groupings, circular dependencies, unassigned stories, units tha
 ...
 ```
 
-### unit-of-work-dependency.md
+### {NNN}-unit-of-work-dependency.md
 
 ```markdown
 # Unit Dependencies
@@ -141,7 +143,7 @@ Check for: vague groupings, circular dependencies, unassigned stories, units tha
 4. [Unit 4] (depends on 2)
 ```
 
-### unit-of-work-story-map.md
+### {NNN}-unit-of-work-story-map.md
 
 ```markdown
 # Story-to-Unit Mapping
@@ -158,7 +160,7 @@ Check for: vague groupings, circular dependencies, unassigned stories, units tha
 - Unassigned stories: [list any]
 ```
 
-### code-organization.md (Greenfield Only)
+### {NNN}-code-organization.md (Greenfield Only)
 
 ```markdown
 # Code Organization
@@ -172,7 +174,7 @@ Check for: vague groupings, circular dependencies, unassigned stories, units tha
 - Shared code lives in: [shared location]
 ```
 
-All artifacts saved to `aidd-docs/inception/units-generation/`.
+All artifacts saved to `aidd-docs/inception/units-generation/` with serial number prefixes.
 
 ## State Update
 

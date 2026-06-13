@@ -49,8 +49,8 @@ Map logical software components to actual infrastructure choices for deployment.
 ## Step 1: Analyze Design Artifacts
 
 Read and understand:
-- Functional design from `aidd-docs/construction/{unit-name}/functional-design/`
-- NFR design from `aidd-docs/construction/{unit-name}/nfr-design/` (if exists)
+- Functional design from `aidd-docs/construction/{unit-name}/functional-design/` (filenames are serial-number prefixed)
+- NFR design from `aidd-docs/construction/{unit-name}/nfr-design/` (if exists, filenames are serial-number prefixed)
 - Logical components identified in NFR design that need infrastructure mapping
 - Reverse engineering infrastructure artifacts (if brownfield)
 
@@ -70,9 +70,11 @@ Read and understand:
 
 ## Step 3: Generate Artifacts
 
+Read **Next Doc ID** from `aidd-state.md` under `## Document Counter`. Use this number as the filename prefix for each file below. After creating each file, increment the counter.
+
 Save to `aidd-docs/construction/{unit-name}/infrastructure-design/`:
 
-### infrastructure-design.md
+### {NNN}-infrastructure-design.md
 ```markdown
 # Infrastructure Design — [unit-name]
 
@@ -100,7 +102,7 @@ Save to `aidd-docs/construction/{unit-name}/infrastructure-design/`:
 - **Configuration**: [rules, health checks, TLS]
 ```
 
-### deployment-architecture.md
+### {NNN}-deployment-architecture.md
 ```markdown
 # Deployment Architecture — [unit-name]
 
@@ -127,7 +129,7 @@ Save to `aidd-docs/construction/{unit-name}/infrastructure-design/`:
 | [name]   | [type]  | [why]   | [where]     |
 ```
 
-### shared-infrastructure.md (if applicable)
+### {NNN}-shared-infrastructure.md (if applicable)
 ```markdown
 # Shared Infrastructure
 

@@ -95,9 +95,9 @@ Create a plan covering:
 - **Expected Stories**: [estimated count]
 
 ## Artifacts to Generate
-- [ ] personas.md — user types and goals
-- [ ] stories.md — stories with acceptance criteria
-- [ ] story-map.md — persona-to-story mapping
+- [ ] {NNN}-personas.md — user types and goals
+- [ ] {NNN}-stories.md — stories with acceptance criteria
+- [ ] {NNN}-story-map.md — persona-to-story mapping
 - [ ] INVEST compliance check
 
 ## Questions
@@ -119,9 +119,11 @@ After collecting answers, check for:
 
 ## Part 2: Generation
 
+Read **Next Doc ID** from `aidd-state.md` under `## Document Counter`. Use this number as the filename prefix for each file below. After creating each file, increment the counter.
+
 ### Personas
 
-Create `aidd-docs/inception/user-stories/personas.md`:
+Create `aidd-docs/inception/user-stories/{NNN}-personas.md`:
 
 ```markdown
 # User Personas
@@ -135,7 +137,7 @@ Create `aidd-docs/inception/user-stories/personas.md`:
 
 ### Stories
 
-Create `aidd-docs/inception/user-stories/stories.md`:
+Create `aidd-docs/inception/user-stories/{NNN}-stories.md`:
 
 ```markdown
 # User Stories
@@ -166,7 +168,7 @@ Flag any stories that violate INVEST and suggest splitting or rewording.
 
 ### Story Map
 
-Create `aidd-docs/inception/user-stories/story-map.md` — mapping personas to their stories for traceability.
+Create `aidd-docs/inception/user-stories/{NNN}-story-map.md` — mapping personas to their stories for traceability.
 
 ## State Update
 

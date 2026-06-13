@@ -52,8 +52,8 @@ High-level component identification and service layer design.
 ## Step 1: Analyze Context
 
 Read and understand:
-- Requirements from `aidd-docs/inception/requirements/`
-- User stories from `aidd-docs/inception/user-stories/` (if generated)
+- Requirements from `aidd-docs/inception/requirements/` (filenames are serial-number prefixed, e.g., `001-requirements.md`)
+- User stories from `aidd-docs/inception/user-stories/` (filenames are serial-number prefixed, e.g., `001-personas.md`)
 - Reverse engineering artifacts (if brownfield)
 
 ## Step 2: Design Plan
@@ -68,10 +68,10 @@ Create a plan identifying:
 - [ ] [component 2]
 
 ## Artifacts to Generate
-- [ ] components.md — definitions and responsibilities
-- [ ] component-methods.md — method signatures
-- [ ] services.md — service definitions and orchestration
-- [ ] component-dependency.md — dependency matrix
+- [ ] {NNN}-components.md — definitions and responsibilities
+- [ ] {NNN}-component-methods.md — method signatures
+- [ ] {NNN}-services.md — service definitions and orchestration
+- [ ] {NNN}-component-dependency.md — dependency matrix
 
 ## Questions
 [context-appropriate questions]
@@ -90,7 +90,11 @@ Prefer multiple choice. One question at a time. Analyze ALL answers for ambiguit
 
 ## Step 4: Generate Artifacts
 
-### components.md
+Read **Next Doc ID** from `aidd-state.md` under `## Document Counter`. Use this number as the filename prefix for each file below. After creating each file, increment the counter.
+
+All artifacts saved to `aidd-docs/inception/application-design/`.
+
+### {NNN}-components.md
 
 ```markdown
 # Components
@@ -102,7 +106,7 @@ Prefer multiple choice. One question at a time. Analyze ALL answers for ambiguit
 - **Boundaries**: [what it does NOT do]
 ```
 
-### component-methods.md
+### {NNN}-component-methods.md
 
 ```markdown
 # Component Methods
@@ -117,7 +121,7 @@ Prefer multiple choice. One question at a time. Analyze ALL answers for ambiguit
 (Detailed business rules are defined in functional-design, not here)
 ```
 
-### services.md
+### {NNN}-services.md
 
 ```markdown
 # Services
@@ -129,7 +133,7 @@ Prefer multiple choice. One question at a time. Analyze ALL answers for ambiguit
 - **Interactions**: [how it calls components]
 ```
 
-### component-dependency.md
+### {NNN}-component-dependency.md
 
 ```markdown
 # Component Dependencies
@@ -143,7 +147,7 @@ Prefer multiple choice. One question at a time. Analyze ALL answers for ambiguit
 - [pattern descriptions]
 ```
 
-All artifacts saved to `aidd-docs/inception/application-design/`.
+All artifacts saved to `aidd-docs/inception/application-design/` with serial number prefixes.
 
 ## State Update
 

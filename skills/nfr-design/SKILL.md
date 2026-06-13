@@ -52,7 +52,7 @@ Analyze non-functional requirements and incorporate them into the unit design wi
 
 ## Step 1: Analyze Functional Design
 
-Read functional design artifacts from `aidd-docs/construction/{unit-name}/functional-design/`. Understand the business logic complexity to assess which NFR categories are relevant.
+Read functional design artifacts from `aidd-docs/construction/{unit-name}/functional-design/` (filenames are serial-number prefixed, e.g., `001-business-logic-model.md`). Understand the business logic complexity to assess which NFR categories are relevant.
 
 ## Step 2: Determine NFR Scope
 
@@ -100,9 +100,11 @@ Analyze ALL answers for ambiguities. Follow up on vague targets ("fast", "reliab
 
 ## Step 4: Generate Artifacts
 
+Read **Next Doc ID** from `aidd-state.md` under `## Document Counter`. Use this number as the filename prefix for each file below. After creating each file, increment the counter.
+
 Save to `aidd-docs/construction/{unit-name}/nfr-design/`:
 
-### nfr-requirements.md
+### {NNN}-nfr-requirements.md
 ```markdown
 # NFR Requirements — [unit-name]
 
@@ -130,7 +132,7 @@ Save to `aidd-docs/construction/{unit-name}/nfr-design/`:
 - **Fault Tolerance**: [what failures to handle]
 ```
 
-### tech-stack-decisions.md
+### {NNN}-tech-stack-decisions.md
 ```markdown
 # Tech Stack Decisions — [unit-name]
 
@@ -142,7 +144,7 @@ Save to `aidd-docs/construction/{unit-name}/nfr-design/`:
 - **Constraints**: [limitations or trade-offs]
 ```
 
-### nfr-design-patterns.md
+### {NNN}-nfr-design-patterns.md
 ```markdown
 # NFR Design Patterns — [unit-name]
 

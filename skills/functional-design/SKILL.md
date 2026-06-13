@@ -51,9 +51,9 @@ Detailed business logic design per unit of work.
 ## Step 1: Analyze Unit Context
 
 Read and understand:
-- Unit definition from `aidd-docs/inception/units-generation/unit-of-work.md`
-- Assigned stories from `aidd-docs/inception/units-generation/unit-of-work-story-map.md`
-- Application design from `aidd-docs/inception/application-design/` (if exists)
+- Unit definition from `aidd-docs/inception/units-generation/` (filenames are serial-number prefixed, e.g., `001-unit-of-work.md`)
+- Assigned stories from `aidd-docs/inception/units-generation/` (e.g., `001-unit-of-work-story-map.md`)
+- Application design from `aidd-docs/inception/application-design/` (if exists, filenames are serial-number prefixed)
 - Reverse engineering artifacts (if brownfield)
 
 ## Step 2: Create Design Plan
@@ -66,10 +66,10 @@ Read and understand:
 - Components: [from application-design]
 
 ## Artifacts to Generate
-- [ ] business-logic-model.md
-- [ ] business-rules.md
-- [ ] domain-entities.md
-- [ ] frontend-components.md (if applicable)
+- [ ] {NNN}-business-logic-model.md
+- [ ] {NNN}-business-rules.md
+- [ ] {NNN}-domain-entities.md
+- [ ] {NNN}-frontend-components.md (if applicable)
 
 ## Questions
 [context-appropriate questions with [Answer]: tags]
@@ -94,9 +94,11 @@ Analyze ALL answers for ambiguities. Follow up on vague, undefined, or contradic
 
 ## Step 4: Generate Artifacts
 
+Read **Next Doc ID** from `aidd-state.md` under `## Document Counter`. Use this number as the filename prefix for each file below. After creating each file, increment the counter.
+
 Save to `aidd-docs/construction/{unit-name}/functional-design/`:
 
-### business-logic-model.md
+### {NNN}-business-logic-model.md
 ```markdown
 # Business Logic — [unit-name]
 
@@ -114,7 +116,7 @@ Save to `aidd-docs/construction/{unit-name}/functional-design/`:
 - **Rules**: [transformation logic]
 ```
 
-### business-rules.md
+### {NNN}-business-rules.md
 ```markdown
 # Business Rules — [unit-name]
 
@@ -129,7 +131,7 @@ Save to `aidd-docs/construction/{unit-name}/functional-design/`:
 - [field]: [constraint] → [error message]
 ```
 
-### domain-entities.md
+### {NNN}-domain-entities.md
 ```markdown
 # Domain Entities — [unit-name]
 
@@ -141,7 +143,7 @@ Save to `aidd-docs/construction/{unit-name}/functional-design/`:
 - **Invariants**: [business constraints that must always hold]
 ```
 
-### frontend-components.md (if applicable)
+### {NNN}-frontend-components.md (if applicable)
 ```markdown
 # Frontend Components — [unit-name]
 
