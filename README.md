@@ -37,51 +37,30 @@ CONSTRUCTION (per unit)
 
 ### Claude Code
 
-#### Option 1: Skills-Directory Plugin (Recommended)
 
-This is the simplest install — no marketplace needed.
+## Installation
 
-```bash
-# Clone or copy into your personal skills directory
-git clone <repo-url> ~/.claude/skills/aidd-workflow
-```
+Installation differs by harness. If you use more than one, install aidd-workflow separately for each one.
 
-That's it. On the next Claude Code session, the plugin loads automatically as `aidd-workflow@skills-dir`. It appears in `/plugin list` with no additional steps.
+### Claude Code
 
-**For a team** (shared via project repository):
+AIDD Workflow is available via the github repository
 
-```bash
-# Copy into the project's .claude/skills/ directory
-cp -r aidd-workflow/ /path/to/project/.claude/skills/aidd-workflow/
-```
+#### AIDD-Workflow Marketplace
 
-Project-scope plugins load after the workspace trust dialog is accepted.
+The aidd-workflow marketplace provides aidd-workflow and some other related plugins for Claude Code.
 
-#### Option 2: Install via Plugin Directory
+- Register the marketplace:
 
-```bash
-# Point Claude Code at the plugin directory
-claude --plugin-dir /path/to/aidd-workflow
-```
+  ```bash
+  /plugin marketplace add https://github.com/xfalcons/aidd-workflow
+  ```
 
-This loads the plugin for the duration of that session.
+- Install the plugin from this marketplace:
 
-#### Option 3: Manual Plugin Install
-
-```bash
-# Copy to any location and add to settings
-cp -r aidd-workflow/ /path/to/plugins/aidd-workflow/
-```
-
-Then add to `~/.claude/settings.json` (user scope) or `.claude/settings.json` (project scope):
-
-```json
-{
-  "enabledPlugins": {
-    "aidd-workflow": true
-  }
-}
-```
+  ```bash
+  /plugin install aidd-workflow@aidd-workflow
+  ```
 
 #### Verifying Installation
 

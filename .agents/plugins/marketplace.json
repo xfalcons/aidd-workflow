@@ -1,0 +1,17 @@
+{
+  "name": "aidd-workflow",
+  "plugins": [
+    {
+      "name": "aidd-workflow",
+      "source": {
+        "source": "local",
+        "path": "./aidd-workflow"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
