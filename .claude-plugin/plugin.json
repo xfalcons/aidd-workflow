@@ -6,6 +6,8 @@
   "author": {
     "name": "xfalcons"
   },
+  "homepage": "https://github.com/xfalcons/aidd-workflow",
+  "repository": "https://github.com/xfalcons/aidd-workflow",
   "license": "MIT",
   "keywords": [
     "workflow",

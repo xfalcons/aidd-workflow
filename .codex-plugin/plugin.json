@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "AI-Driven Development Workflow — 22 skills for structured software development with adaptive depth, TDD enforcement, and subagent-driven execution",
   "author": {
-    "name": "xfalcons",
+    "name": "Kevin Luo",
+    "email": "xfalcons@gmail.com",
     "url": "https://github.com/xfalcons"
   },
+  "homepage": "https://github.com/xfalcons/aidd-workflow",
+  "repository": "https://github.com/xfalcons/aidd-workflow",
   "license": "MIT",
   "keywords": [
     "workflow",
