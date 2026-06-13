@@ -1,5 +1,8 @@
 {
   "name": "aidd-workflow",
+  "interface": {
+    "displayName" : "AIDD Workflow"
+  },
   "plugins": [
     {
       "name": "aidd-workflow",
